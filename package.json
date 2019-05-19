@@ -1,0 +1,19 @@
+{
+  "name": "minimalist-clock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathanhussey/Minimalist-Clock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathanhussey/Minimalist-Clock/issues"
+  },
+  "homepage": "https://github.com/nathanhussey/Minimalist-Clock#readme"
+}

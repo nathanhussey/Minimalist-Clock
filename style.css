@@ -1,0 +1,18 @@
+#clock{
+	font-family: 'Major Mono Display', monospace;
+	font-size: 7em;
+
+}
+
+.big-container{
+	height: 948px
+}
+
+.back-colour{
+	background-color: #BABABA;
+}
+
+.clock-colour{
+	color: #5D5D5D;
+
+}
