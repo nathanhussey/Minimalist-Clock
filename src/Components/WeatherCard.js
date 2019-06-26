@@ -1,5 +1,4 @@
 import React from 'react';
-import App from '../Containers/App';
 
 const WeatherCard = ({ displayWeather }) => {
 	return (
@@ -11,7 +10,7 @@ const WeatherCard = ({ displayWeather }) => {
 
 
 		</div>
-	)
+	);
 
 }
 
