@@ -6,25 +6,29 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-    	weather:[]
+    	currentWeather:'',
+      currentSunset:''
     };
   }
 
   async componentDidMount(){
-  	const weatherAPI = `https://api.weatherbit.io/v2.0/current/?key=24231ebf01444bd192758ea25617af52&lat=43.70011&lon=-79.4163`
+  	const weatherAPI = `https://api.weatherbit.io/v2.0/current/?key=24231ebf01444bd192758ea25617af52&lat=43.85012&lon=79.03288`
   	const response = await fetch(weatherAPI);
   	const json = await response.json();
-		this.setState({weather:json});
+		this.setState(
+      {currentWeather:json.data[0].weather.description,
+        currentSunset:json.data[0].sunset
+      });
 
 
-  	}
+    }
 
 
   render(){
-    const {weather} = this.state;
+    const {currentWeather,currentSunset} = this.state;
     return (
       <div>
-    	 <WeatherCard displayWeather = {weather}/>
+    	 <WeatherCard displayWeather = {currentWeather} sunset1={currentSunset}/>
 
 
       </div>
