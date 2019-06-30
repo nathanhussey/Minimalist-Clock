@@ -7,7 +7,7 @@ const WeatherCardList = ({weatherData}) =>{
 		<div>
 			{
 			 weatherData.map((info, i) => {
-			 	if (i === 0){}
+			 	if (i === 0){return null}
 			 	else{
 			 		return(
 			 			<WeatherCard 
