@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Major Mono Display', monospace;
-  src: local('MajorMonoDisplay-Regular'), url(./css/fonts/MajorMonoDisplay-Regular.ttf) format('ttf');
+  src: local('MajorMonoDisplay-Regular'), url(../css/fonts/MajorMonoDisplay-Regular.ttf) format('ttf');
 }
 
 .clock{
   font-family: 'Major Mono Display', monospace;
-  font-size: 7em;
+  font-size: 2em;
 
 }
 .App {
