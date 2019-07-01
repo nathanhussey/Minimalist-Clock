@@ -5,11 +5,16 @@
 
 .clock{
   font-family: 'Major Mono Display', monospace;
-  font-size: 2em;
+  font-size: 5em;
 
 }
 .App {
   text-align: center;
+}
+
+
+.dark-theme{
+  color:#a9a9a9;
 }
 
 .App-logo {

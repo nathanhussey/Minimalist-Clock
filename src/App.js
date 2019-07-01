@@ -12,9 +12,12 @@ class App extends Component {
     this.state = {
     	currentWeather:'',
       currentIcon:'',
+      sunset:'',
+      sunrise:'',
       currentDate:'',
       weekForcast:[],
-      currentTime:''
+      currentTime:'',
+      colorMode:''
     };
   }
 
@@ -27,17 +30,24 @@ class App extends Component {
     const response2 = await fetch(weekForcastAPI);
     const json2 = await response2.json();
     setInterval(this.getTime, 1000);
-
-    
+    setInterval(this.isSunDown,10000);
 
 		this.setState(
       {currentWeather:json.data[0].weather.description,
         currentIcon:json.data[0].weather.icon,
+        sunset:json.data[0].sunset,
+        sunrise:json.data[0],
         currentDate:json2.data[0].datetime,
-        weekForcast:json2.data,
+        weekForcast:json2.data
       });
   }
+  isSunDown=()=>{
+    if (this.sunset<this.currentTime<this.sunrise){
+      this.setState({colorMode:'darkMode'})
+    }else{this.setState({colorMode:'lightMode'})}
 
+
+  };
   getTime=()=>{
     let currentTime = new Date();
     let currentSecond = currentTime.getSeconds();
@@ -57,9 +67,14 @@ class App extends Component {
   };
 
   render(){
-    const {currentWeather,currentIcon,currentDate,weekForcast,currentTime} = this.state;
+    const {currentWeather,currentIcon,currentDate,weekForcast,currentTime,colorMode} = this.state;
+    let theme = '';
+    if (colorMode === "darkMode"){
+      theme = 'dark-theme'
+
+    }else{theme= 'light-theme'};
     return (
-      <div>
+      <div className={theme}>
         <div className='flex justify-center'>
           <WeatherCard descrip={currentWeather} icon={currentIcon} day={currentDate} />
         </div>

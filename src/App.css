@@ -8,6 +8,20 @@
   font-size: 7em;
 
 }
+
+.light-theme{
+  background-color: #a9a9a9;
+  color:#5d5d5d;
+}
+or color:#424242
+
+.dark-theme{ 
+  background-color: #424242;
+  color: #BDBDBD
+}
+//or color:#a9a9a9
+
+
 .App {
   text-align: center;
 }
