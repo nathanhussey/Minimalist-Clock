@@ -14,6 +14,7 @@ class App extends Component {
       currentIcon:'',
       sunset:'',
       sunrise:'',
+      currentUTC:'',
       currentDate:'',
       weekForcast:[],
       currentTime:'',
@@ -30,19 +31,20 @@ class App extends Component {
     const response2 = await fetch(weekForcastAPI);
     const json2 = await response2.json();
     setInterval(this.getTime, 1000);
-    setInterval(this.isSunDown,10000);
+    setInterval(this.isSunDown,60000);
 
 		this.setState(
       {currentWeather:json.data[0].weather.description,
         currentIcon:json.data[0].weather.icon,
         sunset:json.data[0].sunset,
-        sunrise:json.data[0],
+        sunrise:json.data[0].sunrise,
         currentDate:json2.data[0].datetime,
         weekForcast:json2.data
       });
   }
   isSunDown=()=>{
-    if (this.sunset<this.currentTime<this.sunrise){
+    let time = new Date().toLocaleString('en-GB',{ timeZone: 'UTC',hour: '2-digit', minute:'2-digit'});    
+    if (this.sunset<time<this.sunrise){
       this.setState({colorMode:'darkMode'})
     }else{this.setState({colorMode:'lightMode'})}
 
@@ -60,7 +62,6 @@ class App extends Component {
     if (currentSecond < 10){
       currentSecond = "0" + currentSecond;
     }
-
     printTime =` ${currentHour} : ${currentMinute} : ${currentSecond}`;
     this.setState({currentTime:printTime})
 
