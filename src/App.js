@@ -48,9 +48,11 @@ class App extends Component {
     let timeSplit = time.split(':').join('.');
     let sunsetSplit = this.state.sunset.split(':').join('.');
     let sunriseSplit=this.state.sunrise.split(':').join('.');
-    if (parseInt(sunsetSplit)<parseInt(timeSplit)<parseInt(sunriseSplit)){
+    if (parseInt(sunsetSplit)<parseInt(timeSplit) && parseInt(timeSplit)<parseInt(sunriseSplit)){
       this.setState({colorMode:'darkMode'})
     }else{this.setState({colorMode:'lightMode'})}
+
+
 
   };
   getTime=()=>{
