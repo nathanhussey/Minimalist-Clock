@@ -41,13 +41,16 @@ class App extends Component {
         currentDate:json2.data[0].datetime,
         weekForcast:json2.data
       });
+    this.isSunDown();
   }
   isSunDown=()=>{
-    let time = new Date().toLocaleString('en-GB',{ timeZone: 'UTC',hour: '2-digit', minute:'2-digit'});    
-    if (this.sunset<time<this.sunrise){
+    let time = new Date().toLocaleString('en-GB',{ timeZone: 'UTC',hour: '2-digit', minute:'2-digit'}); 
+    let timeSplit = time.split(':').join('.');
+    let sunsetSplit = this.state.sunset.split(':').join('.');
+    let sunriseSplit=this.state.sunrise.split(':').join('.');
+    if (parseInt(sunsetSplit)<parseInt(timeSplit)<parseInt(sunriseSplit)){
       this.setState({colorMode:'darkMode'})
     }else{this.setState({colorMode:'lightMode'})}
-
 
   };
   getTime=()=>{
